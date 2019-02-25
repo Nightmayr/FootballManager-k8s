@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: consumer-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: consumer
+  template:
+    metadata:
+      labels:
+        component: consumer
+    spec:
+      containers:
+        - name: consumer
+          image: nightmayr/football-consumer
+          ports:
+            - containerPort: 8084

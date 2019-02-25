@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: activemq-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: activemq
+  template:
+    metadata:
+      labels:
+        component: activemq
+    spec:
+      containers:
+        - name: activemq
+          image: rmohr/activemq
+          ports:
+            - containerPort: 8161
+            - containerPort: 61616
+            - containerPort: 61613

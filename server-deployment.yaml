@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      component: server
+  template:
+    metadata:
+      labels:
+        component: server
+    spec:
+      containers:
+      - name: server-account
+        image: nightmayr/football-account
+        ports:
+          - containerPort: 8081
+      - name:  server-player
+        image: nightmayr/football-player
+        ports:
+          - containerPort: 8082
+      # - name:  server-email
+      #   image: nightmayr/football-email
+      #   ports:
+      #     - containerPort: 8083
+      # - name:  server-consumer
+      #   image: nightmayr/football-consumer
+      #   ports:
+      #     - containerPort: 8084
+      - name:  server-mongoclient
+        image: nightmayr/football-mongoclient
+        ports:
+          - containerPort: 8085
