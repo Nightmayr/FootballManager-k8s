@@ -14,15 +14,15 @@ spec:
     spec:
       containers:
       - name: server-account
-        image: nightmayr/football-account:v3
+        image: nightmayr/football-account:v69.0
         ports:
           - containerPort: 8081
       - name:  server-player
-        image: nightmayr/football-player:v1
+        image: nightmayr/football-player:v69.0
         ports:
           - containerPort: 8082
       - name:  server-email
-        image: nightmayr/football-email:v1
+        image: nightmayr/football-email:v69.0
         ports:
           - containerPort: 8086
       # - name:  server-consumer
@@ -30,6 +30,6 @@ spec:
       #   ports:
       #     - containerPort: 8084
       - name:  server-mongoclient
-        image: nightmayr/football-mongoclient:v3
+        image: nightmayr/football-mongoclient:v69.0
         ports:
           - containerPort: 8085
