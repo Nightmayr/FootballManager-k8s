@@ -30,6 +30,6 @@ spec:
       #   ports:
       #     - containerPort: 8084
       - name:  server-mongoclient
-        image: nightmayr/football-mongoclient:v1
+        image: nightmayr/football-mongoclient:v3
         ports:
           - containerPort: 8085
