@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: server-deployment
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       component: server
@@ -14,22 +14,22 @@ spec:
     spec:
       containers:
       - name: server-account
-        image: nightmayr/football-account
+        image: nightmayr/football-account:v3
         ports:
           - containerPort: 8081
       - name:  server-player
-        image: nightmayr/football-player
+        image: nightmayr/football-player:v1
         ports:
           - containerPort: 8082
-      # - name:  server-email
-      #   image: nightmayr/football-email
-      #   ports:
-      #     - containerPort: 8083
+      - name:  server-email
+        image: nightmayr/football-email:v1
+        ports:
+          - containerPort: 8086
       # - name:  server-consumer
       #   image: nightmayr/football-consumer
       #   ports:
       #     - containerPort: 8084
       - name:  server-mongoclient
-        image: nightmayr/football-mongoclient
+        image: nightmayr/football-mongoclient:v1
         ports:
           - containerPort: 8085
